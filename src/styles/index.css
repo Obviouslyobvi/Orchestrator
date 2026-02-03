@@ -3,9 +3,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-base: #f8fafc;
+  --color-surface: #ffffff;
+  --color-muted: #475569;
+  --color-accent: #0ea5e9;
+  --color-border: #e2e8f0;
+  --color-content: #0f172a;
+}
+
+.theme-dark {
+  --color-base: #111113;
+  --color-surface: #17171b;
+  --color-muted: #9ca3af;
+  --color-accent: #06b6d4;
+  --color-border: #27272e;
+  --color-content: #f8fafc;
+}
+
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
-  background-color: #111113;
+  background-color: var(--color-base);
+  color: var(--color-content);
 }
 
 * {

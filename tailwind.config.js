@@ -1,14 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: ['class', '.theme-dark'],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        base: '#111113',
-        surface: '#17171b',
-        muted: '#9ca3af',
-        accent: '#06b6d4',
-        border: '#27272e'
+        base: 'var(--color-base)',
+        surface: 'var(--color-surface)',
+        muted: 'var(--color-muted)',
+        accent: 'var(--color-accent)',
+        border: 'var(--color-border)',
+        content: 'var(--color-content)'
       },
       fontFamily: {
         sans: ['\"DM Sans\"', 'system-ui', 'sans-serif']
