@@ -1,12 +1,30 @@
-# API
+# California Data Brokers Database
 
-AI Orchestrator single-page app built with React + Vite + Tailwind.
+A single-page app for tracking California data brokers, key decision-makers, and outreach pipelines. Built with React, TypeScript, Vite, and Tailwind.
+
+## Product requirements
+
+See the California Data Brokers Database PRD in [`PRD.md`](./PRD.md).
 
 ## Local development
 
 ```bash
 npm install
 npm run dev
+```
+
+## Environment variables
+
+Create a `.env.local` file with the following key to enable the Gemini research assistant:
+
+```bash
+VITE_GEMINI_API_KEY=your_api_key_here
+```
+
+To enable Google Drive backups, add your OAuth client ID:
+
+```bash
+VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
 ```
 
 ## Production build
@@ -40,4 +58,3 @@ This project is a static SPA and can be deployed to any static host (Vercel, Net
 2. Create a new Pages project from the repo.
 3. Set build command to `npm run build` and output directory to `dist`.
 4. Deploy.
-
