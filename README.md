@@ -1,6 +1,6 @@
-# California Data Brokers Database
+# Orchestrator
 
-A single-page app for tracking California data brokers, key decision-makers, and outreach pipelines. Built with React, TypeScript, Vite, and Tailwind.
+A multi-model AI workflow app that intelligently routes tasks to the best AI model based on live benchmarks. Built with React, Vite, and Tailwind.
 
 **Live site:** [https://obviouslyobvi.github.io/Orchestrator/](https://obviouslyobvi.github.io/Orchestrator/)
 
