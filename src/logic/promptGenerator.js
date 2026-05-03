@@ -2,6 +2,20 @@ import { pickBestModel } from './modelRouter';
 import { classifySteps } from './taskClassifier';
 import { injectMemoryContext } from './memoryInjector';
 
+const expandSlashCommand = (description) => {
+  const trimmed = description.trim();
+  if (!trimmed.startsWith('/hatch')) {
+    return description;
+  }
+
+  const hatchDetails = trimmed.replace('/hatch', '').trim();
+  if (!hatchDetails) {
+    return 'Design a delightful hatchable pet concept with a name, personality, visual style, and starter lore.';
+  }
+
+  return `Design a hatchable pet concept based on: ${hatchDetails}. Include a name, personality traits, visual description, and short backstory.`;
+};
+
 export const buildPrompt = ({
   projectName,
   projectDescription,
@@ -10,7 +24,8 @@ export const buildPrompt = ({
   modelName,
   memoryItems
 }) => {
-  const basePrompt = `Project: ${projectName}\nGoal: ${projectDescription}\n\nStep: ${stepTitle}\nTask type: ${taskType}\nModel guidance: ${modelName}\n\nPlease provide your best response for this step. Use bullet points when helpful and keep it ready to paste into the orchestrator.`;
+  const normalizedDescription = expandSlashCommand(projectDescription);
+  const basePrompt = `Project: ${projectName}\nGoal: ${normalizedDescription}\n\nStep: ${stepTitle}\nTask type: ${taskType}\nModel guidance: ${modelName}\n\nPlease provide your best response for this step. Use bullet points when helpful and keep it ready to paste into the orchestrator.`;
   return injectMemoryContext({
     prompt: basePrompt,
     memoryItems,
